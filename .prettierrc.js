@@ -3,7 +3,7 @@ export default {
   singleQuote: false,
 
   // Удаляет ; в конце строк.
-  semi: false,
+  semi: true,
 
   // Максимальная длина строки — 80 символов, дальше перенос.
   printWidth: 80,
@@ -20,5 +20,6 @@ export default {
   // Стрелочные функции: x => x вместо (x) => x.
   arrowParens: "avoid",
 
+  // Фикс строк
   endOfLine: "lf"
-}
+};
