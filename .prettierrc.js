@@ -11,15 +11,15 @@ export default {
   // Размер табуляции — 2 пробела.
   tabWidth: 2,
 
-  // Запрещает висячие запятые ({ a: 1, }).
-  trailingComma: "none",
+  // Почему: Чище git diff, легче добавлять новые поля
+  trailingComma: "es5",
 
   // Формат вида: { value: 1 } вместо {value:1}.
   bracketSpacing: true,
 
   // Стрелочные функции: x => x вместо (x) => x.
-  arrowParens: "avoid",
+  arrowParens: "always",
 
   // Фикс строк
-  endOfLine: "lf"
+  endOfLine: "lf",
 };
