@@ -1,24 +1,43 @@
 // eslint.config.js
+// Импорт рекомендуемых правил JavaScript (eslint:recommended) в формате Flat Config.
 import js from "@eslint/js"
+// Подключаем ESLint-плагин для интеграции Prettier
 import prettier from "eslint-plugin-prettier"
+// Подключаем правила React (например проверка корректности JSX).
 import react from "eslint-plugin-react"
+// Правила для React Hooks (useEffect, useMemo, т.д.).
+// Например:
+// - запрещает использовать хуки вне компонентов
+// - проверяет deps массива useEffect.
 import reactHooks from "eslint-plugin-react-hooks"
+// Плагин сортировки импортов (очень быстрый и лучший вариант).
 import simpleImportSort from "eslint-plugin-simple-import-sort"
+// Библиотека с наборами глобальных переменных: browser, node, es2021
 import globals from "globals"
+// Это набор всего для ESLint + TypeScript:
+// - парсер
+// - плагин
+// - рекомендации
 import tseslint from "typescript-eslint"
 
 export default [
   {
+    // игнорируемые папки
     ignores: ["dist", "node_modules"]
   },
 
   {
+    // На какие файлы распространяются правила
     files: ["**/*.{js,jsx,ts,tsx}"],
 
     languageOptions: {
+      // Используется TypeScript parser (иначе ESLint не понимает TS).
       parser: tseslint.parser,
+      // Современный JavaScript
       ecmaVersion: "latest",
+      // Поддержка import/export
       sourceType: "module",
+      // Добавляет глобальные переменные браузера
       globals: {
         ...globals.browser,
         ...globals.es2021
@@ -26,34 +45,41 @@ export default [
     },
 
     plugins: {
-      "@typescript-eslint": tseslint.plugin, // ✅ ДОБАВЛЕНО!
+      // Подключаем TS‑плагин (для правил типа no-unused-vars)
+      "@typescript-eslint": tseslint.plugin,
+      // Включаем React‑правила
       react,
+      // Включаем строгие правила хуков.
       "react-hooks": reactHooks,
+      // Плагин сортировки импортов/экспортов.
       "simple-import-sort": simpleImportSort,
+      // Прогоняет Prettier через ESLint.
       prettier
     },
 
     rules: {
-      // JS Recommended
+      // Рекомендованные правила JS.
       ...js.configs.recommended.rules,
 
-      // TS Recommended
+      // Рекомендованные TS‑правила.
       ...tseslint.configs.recommended[0].rules,
 
-      // React Recommended
+      // Правила React.
       ...react.configs.recommended.rules,
 
-      // Hooks Recommended
+      // useEffect/useCallback/useMemo — строгая проверка.
       ...reactHooks.configs.recommended.rules,
 
-      // Prettier
+      // Если код нарушает стиль — ESLint покажет ошибку.
       "prettier/prettier": "error",
 
-      // Sorting imports
+      // Импорты сортируются сами
       "simple-import-sort/imports": "error",
+      // Экспорты сортируются сами
       "simple-import-sort/exports": "error",
 
-      // Unused vars
+      // Выдаёт ошибку, если переменная не используется
+      // Но допускает параметры вида: function handler(_event) {}
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_" }
@@ -65,6 +91,7 @@ export default [
 
     settings: {
       react: {
+        // ESLint сам определит установленную версию React и применит подходящие правила.
         version: "detect"
       }
     }

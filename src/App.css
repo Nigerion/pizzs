@@ -8,7 +8,7 @@
   transition: border-color 0.3s;
   margin-bottom: 24px;
 
-  &:hover {
+    &:hover {
     border-color: var(--accent-border);
   }
   &:focus-visible {
@@ -167,7 +167,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;
