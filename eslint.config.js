@@ -23,12 +23,12 @@ import tseslint from "typescript-eslint"
 export default [
   {
     // игнорируемые папки
-    ignores: ["dist", "node_modules"]
+    ignores: ["dist", "node_modules", "*.html", "*.css",]
   },
 
   {
     // На какие файлы распространяются правила
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
 
     languageOptions: {
       // Используется TypeScript parser (иначе ESLint не понимает TS).
