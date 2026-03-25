@@ -71,7 +71,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
 
       // Если код нарушает стиль — ESLint покажет ошибку.
-      "prettier/prettier": "error",
+      "prettier/prettier": ["error", { "endOfLine": "auto" }],
 
       // Импорты сортируются сами
       "simple-import-sort/imports": "error",
