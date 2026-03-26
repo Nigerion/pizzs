@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #333;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.link:hover {
+  color: white;
+  background-color: #333;
+}
+
+.link.active {
+  color: white;
+  background-color: #444;
+  font-weight: 600;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f44336;
+}
